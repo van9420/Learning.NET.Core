@@ -1,0 +1,17 @@
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\bin\Debug\net8.0\ADay15.NET.Infrastructure.deps.json
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\bin\Debug\net8.0\ADay15.NET.Infrastructure.runtimeconfig.json
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\bin\Debug\net8.0\ADay15.NET.Infrastructure.dll
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\bin\Debug\net8.0\ADay15.NET.Infrastructure.pdb
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\bin\Debug\net8.0\ADay15.NET.Domain.dll
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\bin\Debug\net8.0\ADay15.NET.Domain.pdb
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ADay15.NET.Infrastructure.csproj.AssemblyReference.cache
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ADay15.NET.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ADay15.NET.Infrastructure.AssemblyInfoInputs.cache
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ADay15.NET.Infrastructure.AssemblyInfo.cs
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ADay15.NET.Infrastructure.csproj.CoreCompileInputs.cache
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ADay15.N.E628A810.Up2Date
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ADay15.NET.Infrastructure.dll
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\refint\ADay15.NET.Infrastructure.dll
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ADay15.NET.Infrastructure.pdb
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ADay15.NET.Infrastructure.genruntimeconfig.cache
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ref\ADay15.NET.Infrastructure.dll

@@ -1,0 +1,28 @@
+2026-04-17 15:16:54 [INF] 【请求开始】GET /weatherforecast
+2026-04-17 15:16:54 [INF] 【请求结束】GET /weatherforecast | 耗时：15ms
+2026-04-17 15:17:18 [INF] 【请求开始】GET /swagger
+2026-04-17 15:17:18 [INF] 【请求结束】GET /swagger | 耗时：2ms
+2026-04-17 15:17:18 [INF] 【请求开始】GET /swagger/index.html
+2026-04-17 15:17:18 [INF] 【请求结束】GET /swagger/index.html | 耗时：209ms
+2026-04-17 15:17:18 [INF] 【请求开始】GET /swagger/swagger-ui.css
+2026-04-17 15:17:18 [INF] 【请求开始】GET /swagger/index.css
+2026-04-17 15:17:18 [INF] 【请求开始】GET /swagger/index.js
+2026-04-17 15:17:18 [INF] 【请求开始】GET /swagger/swagger-ui-bundle.js
+2026-04-17 15:17:18 [INF] 【请求结束】GET /swagger/index.js | 耗时：1ms
+2026-04-17 15:17:18 [INF] 【请求开始】GET /swagger/swagger-ui-standalone-preset.js
+2026-04-17 15:17:18 [INF] 【请求结束】GET /swagger/index.css | 耗时：24ms
+2026-04-17 15:17:18 [INF] 【请求结束】GET /swagger/swagger-ui.css | 耗时：59ms
+2026-04-17 15:17:18 [INF] 【请求结束】GET /swagger/swagger-ui-standalone-preset.js | 耗时：27ms
+2026-04-17 15:17:18 [INF] 【请求结束】GET /swagger/swagger-ui-bundle.js | 耗时：46ms
+2026-04-17 15:17:19 [INF] 【请求开始】GET /swagger/v1/swagger.json
+2026-04-17 15:17:19 [INF] 【请求开始】GET /swagger/favicon-32x32.png
+2026-04-17 15:17:19 [INF] 【请求结束】GET /swagger/favicon-32x32.png | 耗时：1ms
+2026-04-17 15:17:19 [INF] 【请求结束】GET /swagger/v1/swagger.json | 耗时：10ms
+2026-04-17 15:18:13 [INF] 【请求开始】GET /api/users/user-roles/3
+2026-04-17 15:18:13 [INF] 【请求结束】GET /api/users/user-roles/3 | 耗时：542ms
+2026-04-17 15:18:21 [INF] 【请求开始】GET /api/Users/user-roles/3
+2026-04-17 15:18:21 [INF] 【请求结束】GET /api/Users/user-roles/3 | 耗时：26ms
+2026-04-17 15:23:02 [INF] 【请求开始】GET /weatherforecast
+2026-04-17 15:23:02 [INF] 【请求结束】GET /weatherforecast | 耗时：11ms
+2026-04-17 15:23:05 [INF] 【请求开始】GET /api/Users/user-roles/3
+2026-04-17 15:23:07 [INF] 【请求结束】GET /api/Users/user-roles/3 | 耗时：2544ms

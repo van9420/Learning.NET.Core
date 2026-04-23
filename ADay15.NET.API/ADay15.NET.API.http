@@ -1,0 +1,6 @@
+@ADay15.NET.API_HostAddress = http://localhost:5062
+
+GET {{ADay15.NET.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

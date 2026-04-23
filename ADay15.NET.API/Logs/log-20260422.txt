@@ -1,0 +1,395 @@
+2026-04-22 11:39:44 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 11:39:45 [INF] 【请求结束】GET /weatherforecast | 耗时：21ms
+2026-04-22 11:39:56 [INF] 【请求开始】GET /api/Users/user-roles/3
+2026-04-22 11:39:56 [INF] 【请求结束】GET /api/Users/user-roles/3 | 耗时：0ms
+2026-04-22 11:40:07 [INF] 【请求开始】GET /api/Users/user-roles/1
+2026-04-22 11:40:07 [INF] 【请求结束】GET /api/Users/user-roles/1 | 耗时：0ms
+2026-04-22 11:40:14 [INF] 【请求开始】GET /api/User/user-roles/1
+2026-04-22 11:40:20 [INF] 【请求结束】GET /api/User/user-roles/1 | 耗时：5968ms
+2026-04-22 11:40:36 [INF] 【请求开始】GET /api/user/user-roles/1
+2026-04-22 11:40:36 [INF] 【请求结束】GET /api/user/user-roles/1 | 耗时：21ms
+2026-04-22 11:42:14 [INF] 【请求开始】GET /api/user/user-roles/3
+2026-04-22 11:42:14 [INF] 【请求结束】GET /api/user/user-roles/3 | 耗时：99ms
+2026-04-22 11:45:00 [INF] 【请求开始】POST /api/user
+2026-04-22 11:49:14 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 11:49:14 [INF] 【请求结束】GET /weatherforecast | 耗时：13ms
+2026-04-22 11:49:25 [INF] 【请求开始】POST /api/user
+2026-04-22 11:50:29 [INF] 【请求结束】POST /api/user | 耗时：63820ms
+2026-04-22 11:51:49 [INF] 【请求开始】POST /api/user
+2026-04-22 11:51:53 [INF] 【请求结束】POST /api/user | 耗时：3458ms
+2026-04-22 11:59:31 [INF] 【请求开始】POST /api/user
+2026-04-22 12:00:15 [INF] 【请求结束】POST /api/user | 耗时：44370ms
+2026-04-22 12:00:36 [INF] 【请求开始】POST /api/user
+2026-04-22 12:02:40 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 12:02:40 [INF] 【请求结束】GET /weatherforecast | 耗时：13ms
+2026-04-22 12:02:45 [INF] 【请求开始】POST /api/user
+2026-04-22 12:03:42 [ERR] An exception occurred in the database while saving changes for context type 'ADay15.NET.Infrastructure.DbContexts.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_UserRoles_Users_UserId". The conflict occurred in database "AdminNET", table "dbo.Users", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:f23bdd4c-325a-4c6d-b9bd-f4bf8bf29f73
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_UserRoles_Users_UserId". The conflict occurred in database "AdminNET", table "dbo.Users", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:f23bdd4c-325a-4c6d-b9bd-f4bf8bf29f73
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-04-22 12:06:01 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 12:06:01 [INF] 【请求结束】GET /weatherforecast | 耗时：12ms
+2026-04-22 12:06:23 [INF] 【请求开始】POST /api/user
+2026-04-22 12:09:35 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 12:09:35 [INF] 【请求结束】GET /weatherforecast | 耗时：15ms
+2026-04-22 12:10:48 [INF] 【请求开始】POST /api/user
+2026-04-22 12:11:01 [ERR] An exception occurred in the database while saving changes for context type 'ADay15.NET.Infrastructure.DbContexts.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_UserRoles_Users_UserId". The conflict occurred in database "AdminNET", table "dbo.Users", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:d0ea0c3f-e104-4639-aec6-f97c3766f356
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_UserRoles_Users_UserId". The conflict occurred in database "AdminNET", table "dbo.Users", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:d0ea0c3f-e104-4639-aec6-f97c3766f356
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-04-22 12:11:37 [INF] 【请求结束】POST /api/user | 耗时：47462ms
+2026-04-22 12:13:53 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 12:13:53 [INF] 【请求结束】GET /weatherforecast | 耗时：77ms
+2026-04-22 12:13:55 [INF] 【请求开始】POST /api/user
+2026-04-22 12:13:57 [INF] 【请求结束】POST /api/user | 耗时：2002ms
+2026-04-22 12:14:05 [INF] 【请求开始】POST /api/user
+2026-04-22 12:14:05 [INF] 【请求结束】POST /api/user | 耗时：144ms
+2026-04-22 12:18:36 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 12:18:36 [INF] 【请求结束】GET /weatherforecast | 耗时：12ms
+2026-04-22 12:18:42 [INF] 【请求开始】POST /api/user
+2026-04-22 12:18:43 [WRN] The foreign key property 'UserRole.RoleId1' was created in shadow state because a conflicting property with the simple name 'RoleId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-22 12:18:43 [WRN] The foreign key property 'UserRole.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-22 12:18:44 [INF] 【请求结束】POST /api/user | 耗时：2131ms
+2026-04-22 12:19:37 [INF] 【请求开始】POST /api/user
+2026-04-22 12:19:38 [INF] 【请求结束】POST /api/user | 耗时：131ms
+2026-04-22 12:19:51 [INF] 【请求开始】POST /api/user
+2026-04-22 12:41:18 [INF] 【请求开始】POST /api/user
+2026-04-22 12:41:18 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 12:41:18 [INF] 【请求结束】GET /weatherforecast | 耗时：11ms
+2026-04-22 12:41:19 [WRN] The foreign key property 'UserRole.RoleId1' was created in shadow state because a conflicting property with the simple name 'RoleId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-22 12:41:23 [ERR] An exception occurred in the database while saving changes for context type 'ADay15.NET.Infrastructure.DbContexts.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.InvalidCastException: Unable to cast object of type 'System.Int64' to type 'System.Int32'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int32()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt32(Int32 i)
+   at lambda_method194(Closure, DbDataReader, Int32)
+   at Microsoft.EntityFrameworkCore.RelationalPropertyExtensions.GetReaderFieldValue(IProperty property, RelationalDataReader relationalReader, Int32 ordinal, Boolean detailedErrorsEnabled)
+   at Microsoft.EntityFrameworkCore.Update.ModificationCommand.PropagateResults(RelationalDataReader relationalReader)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.InvalidCastException: Unable to cast object of type 'System.Int64' to type 'System.Int32'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int32()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt32(Int32 i)
+   at lambda_method194(Closure, DbDataReader, Int32)
+   at Microsoft.EntityFrameworkCore.RelationalPropertyExtensions.GetReaderFieldValue(IProperty property, RelationalDataReader relationalReader, Int32 ordinal, Boolean detailedErrorsEnabled)
+   at Microsoft.EntityFrameworkCore.Update.ModificationCommand.PropagateResults(RelationalDataReader relationalReader)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2026-04-22 12:42:14 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 12:42:14 [INF] 【请求结束】GET /weatherforecast | 耗时：13ms
+2026-04-22 12:42:17 [INF] 【请求开始】POST /api/user
+2026-04-22 12:43:06 [INF] 【请求结束】POST /api/user | 耗时：48858ms
+2026-04-22 14:00:07 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 14:00:07 [INF] 【请求结束】GET /weatherforecast | 耗时：14ms
+2026-04-22 14:00:20 [INF] 【请求开始】POST /api/user
+2026-04-22 14:02:09 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 14:02:10 [INF] 【请求结束】GET /weatherforecast | 耗时：11ms
+2026-04-22 14:12:31 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 14:12:31 [INF] 【请求结束】GET /weatherforecast | 耗时：9ms
+2026-04-22 14:13:29 [INF] 【请求开始】POST /api/user
+2026-04-22 14:13:31 [INF] 【请求结束】POST /api/user | 耗时：2048ms
+2026-04-22 14:20:46 [INF] 【请求开始】POST /api/user-roles/10007
+2026-04-22 14:20:46 [INF] 【请求结束】POST /api/user-roles/10007 | 耗时：0ms
+2026-04-22 14:20:56 [INF] 【请求开始】POST /api/user/user-roles/10007
+2026-04-22 14:20:56 [INF] 【请求结束】POST /api/user/user-roles/10007 | 耗时：0ms
+2026-04-22 14:21:32 [INF] 【请求开始】GET /api/user/user-roles/10007
+2026-04-22 14:21:32 [INF] 【请求结束】GET /api/user/user-roles/10007 | 耗时：63ms
+2026-04-22 14:23:18 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 14:23:18 [INF] 【请求结束】GET /weatherforecast | 耗时：22ms
+2026-04-22 14:25:49 [INF] 【请求开始】PUT /api/user/
+2026-04-22 14:25:52 [INF] 【请求结束】PUT /api/user/ | 耗时：3521ms
+2026-04-22 14:28:16 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 14:28:16 [INF] 【请求结束】GET /weatherforecast | 耗时：14ms
+2026-04-22 14:28:27 [INF] 【请求开始】PUT /api/user/
+2026-04-22 14:31:38 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 14:31:38 [INF] 【请求结束】GET /weatherforecast | 耗时：12ms
+2026-04-22 14:31:41 [INF] 【请求开始】PUT /api/user/
+2026-04-22 14:32:09 [INF] 【请求结束】PUT /api/user/ | 耗时：27679ms
+2026-04-22 16:02:44 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 16:02:44 [INF] 【请求结束】GET /weatherforecast | 耗时：14ms
+2026-04-22 16:03:04 [INF] 【请求开始】POST /api/user/
+2026-04-22 16:03:06 [INF] 【请求结束】POST /api/user/ | 耗时：2010ms
+2026-04-22 16:03:59 [INF] 【请求开始】POST /api/user/
+2026-04-22 16:04:20 [INF] 【请求结束】POST /api/user/ | 耗时：20530ms
+2026-04-22 16:05:20 [INF] 【请求开始】POST /api/user/
+2026-04-22 16:07:13 [INF] 【请求结束】POST /api/user/ | 耗时：112693ms
+2026-04-22 16:09:18 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 16:09:18 [INF] 【请求结束】GET /weatherforecast | 耗时：13ms
+2026-04-22 16:09:28 [INF] 【请求开始】POST /api/user/
+2026-04-22 16:11:48 [INF] 【请求结束】POST /api/user/ | 耗时：140266ms
+2026-04-22 16:37:25 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 16:37:25 [INF] 【请求结束】GET /weatherforecast | 耗时：12ms
+2026-04-22 16:37:35 [INF] 【请求开始】POST /api/user/
+2026-04-22 16:37:42 [INF] 【请求结束】POST /api/user/ | 耗时：6496ms
+2026-04-22 16:38:15 [INF] 【请求开始】POST /api/user/
+2026-04-22 16:38:19 [ERR] An exception occurred in the database while saving changes for context type 'ADay15.NET.Infrastructure.DbContexts.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The MERGE statement conflicted with the FOREIGN KEY constraint "FK_UserRoles_Roles_RoleId". The conflict occurred in database "AdminNET", table "dbo.Roles", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:438aba0d-6e3d-4532-9cc7-54c5d2a9580d
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The MERGE statement conflicted with the FOREIGN KEY constraint "FK_UserRoles_Roles_RoleId". The conflict occurred in database "AdminNET", table "dbo.Roles", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:438aba0d-6e3d-4532-9cc7-54c5d2a9580d
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-04-22 16:38:19 [INF] 【请求结束】POST /api/user/ | 耗时：3958ms
+2026-04-22 16:38:42 [INF] 【请求开始】POST /api/user/
+2026-04-22 16:38:42 [INF] 【请求结束】POST /api/user/ | 耗时：78ms
+2026-04-22 16:40:01 [INF] 【请求开始】PUT /api/user/
+2026-04-22 16:40:02 [INF] 【请求结束】PUT /api/user/ | 耗时：201ms
+2026-04-22 16:48:14 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 16:48:14 [INF] 【请求结束】GET /weatherforecast | 耗时：73ms
+2026-04-22 16:48:37 [INF] 【请求开始】PUT /api/user/
+2026-04-22 16:48:39 [INF] 【请求结束】PUT /api/user/ | 耗时：1891ms
+2026-04-22 16:49:32 [INF] 【请求开始】DELETE /api/user/10010
+2026-04-22 16:49:32 [INF] 【请求结束】DELETE /api/user/10010 | 耗时：75ms
+2026-04-22 16:51:10 [INF] 【请求开始】GET /api/user
+2026-04-22 16:51:10 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-22 16:51:10 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-22 16:51:10 [INF] 【请求结束】GET /api/user | 耗时：102ms
+2026-04-22 16:52:36 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 16:52:36 [INF] 【请求结束】GET /weatherforecast | 耗时：11ms
+2026-04-22 16:52:43 [INF] 【请求开始】GET /api/user
+2026-04-22 16:52:44 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-22 16:52:44 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-22 16:52:45 [INF] 【请求结束】GET /api/user | 耗时：1561ms
+2026-04-22 16:54:17 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 16:54:17 [INF] 【请求结束】GET /weatherforecast | 耗时：10ms
+2026-04-22 16:54:28 [INF] 【请求开始】GET /api/user
+2026-04-22 16:54:29 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-22 16:54:29 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-22 16:54:29 [INF] 【请求结束】GET /api/user | 耗时：1492ms
+2026-04-22 16:55:01 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 16:55:01 [INF] 【请求结束】GET /weatherforecast | 耗时：12ms
+2026-04-22 16:55:05 [INF] 【请求开始】GET /api/user
+2026-04-22 16:55:07 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-22 16:55:07 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-22 16:55:07 [INF] 【请求结束】GET /api/user | 耗时：1694ms
+2026-04-22 16:55:17 [INF] 【请求开始】GET /api/user
+2026-04-22 16:55:17 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-22 16:55:17 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-22 16:55:17 [INF] 【请求结束】GET /api/user | 耗时：27ms
+2026-04-22 17:01:25 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 17:01:25 [INF] 【请求结束】GET /weatherforecast | 耗时：10ms
+2026-04-22 17:01:31 [INF] 【请求开始】PUT /api/user/role-status
+2026-04-22 17:01:32 [INF] 【请求结束】PUT /api/user/role-status | 耗时：431ms
+2026-04-22 17:04:30 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 17:04:30 [INF] 【请求结束】GET /weatherforecast | 耗时：12ms
+2026-04-22 17:04:34 [INF] 【请求开始】PUT /api/user/role-status
+2026-04-22 17:04:34 [INF] 【请求结束】PUT /api/user/role-status | 耗时：230ms
+2026-04-22 17:17:57 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 17:17:57 [INF] 【请求结束】GET /weatherforecast | 耗时：12ms
+2026-04-22 17:18:00 [INF] 【请求开始】PUT /api/user/role-status
+2026-04-22 17:18:01 [INF] 【请求结束】PUT /api/user/role-status | 耗时：224ms
+2026-04-22 17:19:22 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 17:19:22 [INF] 【请求结束】GET /weatherforecast | 耗时：12ms
+2026-04-22 17:19:24 [INF] 【请求开始】PUT /api/user/role-status
+2026-04-22 17:19:24 [INF] 【请求结束】PUT /api/user/role-status | 耗时：221ms
+2026-04-22 17:19:52 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 17:19:52 [INF] 【请求结束】GET /weatherforecast | 耗时：10ms
+2026-04-22 17:19:53 [INF] 【请求开始】PUT /api/user/role-status
+2026-04-22 17:21:20 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 17:21:20 [INF] 【请求结束】GET /weatherforecast | 耗时：10ms
+2026-04-22 17:21:22 [INF] 【请求开始】PUT /api/user/role-status
+2026-04-22 17:21:23 [INF] 【请求结束】PUT /api/user/role-status | 耗时：223ms
+2026-04-22 17:21:33 [INF] 【请求开始】PUT /api/user/role-status
+2026-04-22 17:21:33 [INF] 【请求结束】PUT /api/user/role-status | 耗时：7ms
+2026-04-22 17:21:49 [INF] 【请求开始】PUT /api/user/role-status
+2026-04-22 17:21:49 [INF] 【请求结束】PUT /api/user/role-status | 耗时：3ms
+2026-04-22 17:22:02 [INF] 【请求开始】PUT /api/user/role-status
+2026-04-22 17:22:31 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 17:22:31 [INF] 【请求结束】GET /weatherforecast | 耗时：16ms
+2026-04-22 17:22:35 [INF] 【请求开始】PUT /api/user/role-status
+2026-04-22 17:22:35 [INF] 【请求结束】PUT /api/user/role-status | 耗时：204ms
+2026-04-22 17:23:05 [INF] 【请求开始】PUT /api/user/role-status
+2026-04-22 17:23:46 [INF] 【请求结束】PUT /api/user/role-status | 耗时：38882ms
+2026-04-22 23:05:26 [INF] 【请求开始】GET /weatherforecast
+2026-04-22 23:05:26 [INF] 【请求结束】GET /weatherforecast | 耗时：18ms
+2026-04-22 23:06:02 [INF] 【请求开始】POST /api/user/
+2026-04-22 23:06:04 [INF] 【请求结束】POST /api/user/ | 耗时：1997ms
+2026-04-22 23:09:04 [INF] 【请求开始】PUT /api/user/
+2026-04-22 23:09:05 [INF] 【请求结束】PUT /api/user/ | 耗时：127ms
+2026-04-22 23:11:46 [INF] 【请求开始】PUT /api/user/
+2026-04-22 23:11:46 [INF] 【请求结束】PUT /api/user/ | 耗时：83ms
+2026-04-22 23:12:41 [INF] 【请求开始】GET /api/user
+2026-04-22 23:12:41 [INF] 【请求结束】GET /api/user | 耗时：97ms
+2026-04-22 23:13:42 [INF] 【请求开始】PUT /api/user/batch-disable
+2026-04-22 23:13:42 [INF] 【请求结束】PUT /api/user/batch-disable | 耗时：24ms
+2026-04-22 23:14:15 [INF] 【请求开始】PUT /api/user/batch-disable
+2026-04-22 23:14:15 [INF] 【请求结束】PUT /api/user/batch-disable | 耗时：0ms
+2026-04-22 23:14:38 [INF] 【请求开始】PUT /api/user/batch-disable
+2026-04-22 23:14:38 [INF] 【请求结束】PUT /api/user/batch-disable | 耗时：11ms
+2026-04-22 23:17:42 [INF] 【请求开始】PUT /api/user/batch-disable
+2026-04-22 23:17:42 [INF] 【请求结束】PUT /api/user/batch-disable | 耗时：54ms

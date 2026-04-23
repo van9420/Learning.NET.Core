@@ -1,0 +1,17 @@
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\bin\Debug\net8.0\ADay15.NET.Application.deps.json
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\bin\Debug\net8.0\ADay15.NET.Application.dll
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\bin\Debug\net8.0\ADay15.NET.Application.pdb
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\bin\Debug\net8.0\ADay15.NET.Domain.dll
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\bin\Debug\net8.0\ADay15.NET.Infrastructure.dll
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\bin\Debug\net8.0\ADay15.NET.Domain.pdb
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\bin\Debug\net8.0\ADay15.NET.Infrastructure.pdb
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\ADay15.NET.Application.csproj.AssemblyReference.cache
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\ADay15.NET.Application.GeneratedMSBuildEditorConfig.editorconfig
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\ADay15.NET.Application.AssemblyInfoInputs.cache
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\ADay15.NET.Application.AssemblyInfo.cs
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\ADay15.NET.Application.csproj.CoreCompileInputs.cache
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\ADay15.N.3BE518F1.Up2Date
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\ADay15.NET.Application.dll
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\refint\ADay15.NET.Application.dll
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\ADay15.NET.Application.pdb
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\ref\ADay15.NET.Application.dll

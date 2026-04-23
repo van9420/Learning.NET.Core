@@ -1,0 +1,12 @@
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Domain\bin\Debug\net8.0\ADay15.NET.Domain.deps.json
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Domain\bin\Debug\net8.0\ADay15.NET.Domain.dll
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Domain\bin\Debug\net8.0\ADay15.NET.Domain.pdb
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Domain\obj\Debug\net8.0\ADay15.NET.Domain.csproj.AssemblyReference.cache
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Domain\obj\Debug\net8.0\ADay15.NET.Domain.GeneratedMSBuildEditorConfig.editorconfig
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Domain\obj\Debug\net8.0\ADay15.NET.Domain.AssemblyInfoInputs.cache
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Domain\obj\Debug\net8.0\ADay15.NET.Domain.AssemblyInfo.cs
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Domain\obj\Debug\net8.0\ADay15.NET.Domain.csproj.CoreCompileInputs.cache
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Domain\obj\Debug\net8.0\ADay15.NET.Domain.dll
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Domain\obj\Debug\net8.0\refint\ADay15.NET.Domain.dll
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Domain\obj\Debug\net8.0\ADay15.NET.Domain.pdb
+G:\projects\C#\ADay15.NET.API\ADay15.NET.Domain\obj\Debug\net8.0\ref\ADay15.NET.Domain.dll
