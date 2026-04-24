@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "pqJPFyequWI=",
+  "dgSpecHash": "rCx+p2M6/rQ=",
   "success": true,
   "projectFilePath": "G:\\projects\\C#\\ADay15.Net.API\\ADay15.NET.Domain\\ADay15.NET.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\you\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.26\\microsoft.entityframeworkcore.8.0.26.nupkg.sha512",
     "C:\\Users\\you\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.26\\microsoft.entityframeworkcore.abstractions.8.0.26.nupkg.sha512",
     "C:\\Users\\you\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.26\\microsoft.entityframeworkcore.analyzers.8.0.26.nupkg.sha512",
+    "C:\\Users\\you\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.26\\microsoft.entityframeworkcore.relational.8.0.26.nupkg.sha512",
     "C:\\Users\\you\\.nuget\\packages\\microsoft.extensions.apidescription.server\\8.0.0\\microsoft.extensions.apidescription.server.8.0.0.nupkg.sha512",
     "C:\\Users\\you\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\you\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.1\\microsoft.extensions.caching.memory.8.0.1.nupkg.sha512",
+    "C:\\Users\\you\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\you\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.1\\microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
     "C:\\Users\\you\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
     "C:\\Users\\you\\.nuget\\packages\\microsoft.extensions.logging\\8.0.1\\microsoft.extensions.logging.8.0.1.nupkg.sha512",

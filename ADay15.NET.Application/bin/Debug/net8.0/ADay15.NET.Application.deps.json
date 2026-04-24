@@ -1916,6 +1916,7 @@
       "ADay15.NET.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.26",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.26",
           "Swashbuckle.AspNetCore": "10.1.7"
         },
         "runtime": {

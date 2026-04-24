@@ -1,7 +1,11 @@
 using ADay15.NET.Application.Extensions;
 using ADay15.NET.Application.Services;
+using ADay15.NET.Domain.Interfaces;
+using ADay15.NET.Domain.Repositories;
 using ADay15.NET.Infrastructure.DbContexts;
 using ADay15.NET.Infrastructure.Middlewares;
+using ADay15.NET.Infrastructure.Repositories;
+using ADay15.NET.Infrastructure.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -10,6 +14,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 //×¢²áService
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserRoleRepository, UserRoleRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<UserService>();
 
 //×¢Èë Swagger

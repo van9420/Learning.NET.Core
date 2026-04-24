@@ -184,3 +184,4 @@ G:\projects\C#\ADay15.NET.API\ADay15.NET.API\bin\Debug\net8.0\System.IO.Pipeline
 G:\projects\C#\ADay15.NET.API\ADay15.NET.API\bin\Debug\net8.0\System.Text.Encodings.Web.dll
 G:\projects\C#\ADay15.NET.API\ADay15.NET.API\bin\Debug\net8.0\System.Text.Json.dll
 G:\projects\C#\ADay15.NET.API\ADay15.NET.API\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+G:\projects\C#\ADay15.Net.API\ADay15.NET.API\obj\Debug\net8.0\ADay15.NET.API.sourcelink.json

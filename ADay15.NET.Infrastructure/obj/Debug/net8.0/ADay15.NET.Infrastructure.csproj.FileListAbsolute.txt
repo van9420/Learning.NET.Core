@@ -15,3 +15,4 @@ G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\refint\
 G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ADay15.NET.Infrastructure.pdb
 G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ADay15.NET.Infrastructure.genruntimeconfig.cache
 G:\projects\C#\ADay15.NET.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ref\ADay15.NET.Infrastructure.dll
+G:\projects\C#\ADay15.Net.API\ADay15.NET.Infrastructure\obj\Debug\net8.0\ADay15.NET.Infrastructure.sourcelink.json

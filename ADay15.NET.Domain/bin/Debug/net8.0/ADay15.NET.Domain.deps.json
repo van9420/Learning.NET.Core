@@ -9,6 +9,7 @@
       "ADay15.NET.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.26",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.26",
           "Swashbuckle.AspNetCore": "10.1.7"
         },
         "runtime": {
@@ -38,6 +39,18 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/8.0.26": {},
+      "Microsoft.EntityFrameworkCore.Relational/8.0.26": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.26",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.Relational.dll": {
+            "assemblyVersion": "8.0.26.0",
+            "fileVersion": "8.0.2626.16905"
+          }
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/8.0.0": {},
       "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
         "dependencies": {
@@ -57,6 +70,11 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
         }
       },
       "Microsoft.Extensions.DependencyInjection/8.0.1": {
@@ -194,6 +212,13 @@
       "path": "microsoft.entityframeworkcore.analyzers/8.0.26",
       "hashPath": "microsoft.entityframeworkcore.analyzers.8.0.26.nupkg.sha512"
     },
+    "Microsoft.EntityFrameworkCore.Relational/8.0.26": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-u9+JYECGPFyEtfsym+e8inVb9e0vnp+Nn80aTOmUj/AxdJ7GqM9lvO/CSgDs7BtDtMFwjK+r8h977zsXbSzT+Q==",
+      "path": "microsoft.entityframeworkcore.relational/8.0.26",
+      "hashPath": "microsoft.entityframeworkcore.relational.8.0.26.nupkg.sha512"
+    },
     "Microsoft.Extensions.ApiDescription.Server/8.0.0": {
       "type": "package",
       "serviceable": true,
@@ -214,6 +239,13 @@
       "sha512": "sha512-HFDnhYLccngrzyGgHkjEDU5FMLn4MpOsr5ElgsBMC4yx6lJh4jeWO7fHS8+TXPq+dgxCmUa/Trl8svObmwW4QA==",
       "path": "microsoft.extensions.caching.memory/8.0.1",
       "hashPath": "microsoft.extensions.caching.memory.8.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3lE/iLSutpgX1CC0NOW70FJoGARRHbyKmG7dc0klnUZ9Dd9hS6N/POPWhKhMLCEuNN5nXEY5agmlFtH562vqhQ==",
+      "path": "microsoft.extensions.configuration.abstractions/8.0.0",
+      "hashPath": "microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/8.0.1": {
       "type": "package",

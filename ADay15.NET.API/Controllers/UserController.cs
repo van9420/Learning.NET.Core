@@ -32,6 +32,13 @@ namespace ADay15.NET.API.Controllers
             return Ok(R<object>.Sucess(data));
         }
 
+        [HttpGet("user-account")]
+        public async Task<ActionResult<R<User>>> GetUserByAccoun([FromQuery]string account)
+        {
+            var data = await _userService.GetUserByAccountAsync(account);
+            return Ok(R<User>.Sucess(data));
+        }
+
         /// <summary>
         /// 新增用户
         /// </summary>

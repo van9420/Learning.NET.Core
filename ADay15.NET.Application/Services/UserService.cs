@@ -1,8 +1,12 @@
 ﻿
 using ADay15.NET.Application.DTOs;
 using ADay15.NET.Domain.Entities;
+using ADay15.NET.Domain.Extensions;
+using ADay15.NET.Domain.Interfaces;
+using ADay15.NET.Domain.Repositories;
 using ADay15.NET.Infrastructure.Commons;
 using ADay15.NET.Infrastructure.DbContexts;
+using ADay15.NET.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,37 +24,24 @@ namespace ADay15.NET.Application.Services
 {
     public class UserService 
     {
-        private readonly AppDbContext _dbContext;
+        private readonly IUnitOfWork _unit;
 
         // 构造函数注入
-        public UserService(AppDbContext dbContext)
+        public UserService(IUnitOfWork unit)
         {
-            _dbContext = dbContext;
+            _unit = unit;
         }
 
-       
         public async Task<dynamic> GetUserWithRolesAsync(long userId)
         {
-            var user = await _dbContext.Users
-            .AsNoTracking()
-            .Include(u => u.UserRoles)
-                .ThenInclude(ur => ur.Role )
-            .Where(u => u.Id == userId)
-            .Select(u => new
-            {
-                u.Id,
-                u.Account,
-                u.Name,
-                Roles = u.UserRoles.Select(ur => new
-                {
-                    ur.Role.Id,
-                    ur.Role.RoleName,
-                    ur.Role.RoleCode
-                }).ToList()
-            })
-            .FirstOrDefaultAsync();
+            return await _unit.UserRepository.GetUserWithRolesAsync(userId);
 
-            return user;
+        }
+
+        public async Task<User> GetUserByAccountAsync(string account)
+        {
+            return await _unit.UserRepository.GetUserByAccountAsync(account);
+
         }
 
         /// <summary>
@@ -63,12 +55,12 @@ namespace ADay15.NET.Application.Services
         {
             //先判断账号是否唯一
             // 【重要】不能用 AsNoTracking，因为要判断存在
-            var exists = await _dbContext.Users.AnyAsync(u => u.Account == dto.Account);
+            var exists = await _unit.UserRepository.AnyAsync(u => u.Account == dto.Account);
             if (exists)
                 return R<dynamic>.Fail("账号已存在");
 
             //事务
-            using (var transaction = await _dbContext.Database.BeginTransactionAsync())
+            using (await _unit.BeginTransactionAsync())
             {
                 try
                 {
@@ -79,9 +71,12 @@ namespace ADay15.NET.Application.Services
                     user.Password = dto.Password;// 未来必须加密，这里先保留
                     user.Status = dto.Status;
 
-                    await _dbContext.Users.AddAsync(user);
-                    await _dbContext.SaveChangesAsync(); // 获取主键
+                    await _unit.UserRepository.AddAsync(user);
 
+                    // -----------------------
+                    // 【关键】在这里 SaveChanges 拿 ID，完全安全！
+                    // -----------------------
+                    await _unit.SaveChangesAsync();   // 这个方法内部会 SaveChanges
 
                     // 执行第二个数据库操作: 给用户分配角色（批量插入 SysUserRole）
                     // 批量分配角色
@@ -91,19 +86,17 @@ namespace ADay15.NET.Application.Services
                         RoleId = roleId
                     }).ToList();
 
-                    await _dbContext.UserRoles.AddRangeAsync(userRoles);
-                    // 保存更改
-                    await _dbContext.SaveChangesAsync();
+                    await _unit.UserRoleRepository.AddRangeAsync(userRoles);
 
-                    // 提交事务
-                    await transaction.CommitAsync();
+                    // ✅ 统一提交
+                    await _unit.CommitAsync();
 
                     return R<dynamic>.Sucess(new { user.Id, user.Account, user.Name });
                 }
                 catch (Exception ex)
                 {
                     // 发生异常时回滚事务
-                    await transaction.RollbackAsync();
+                    await _unit.RollbackAsync();
                     // 可以选择抛出异常或进行其他错误处理
                     throw; // 或者处理异常，例如：throw new Exception("Transaction failed", ex);
                 }
@@ -122,14 +115,13 @@ namespace ADay15.NET.Application.Services
         {
             //查询用户是否存在
             // 【关键】修改必须 TRACKING，不能 AsNoTracking
-            var user = await _dbContext.Users
-                .FirstOrDefaultAsync(u => u.Id == dto.Id);
+            var user = await _unit.UserRepository.FirstOrDefaultAsync(u => u.Id == dto.Id);
 
             if (user == null)
                 return R<dynamic>.Fail("用户不存在");
             else 
             {
-                using (var transaction = await _dbContext.Database.BeginTransactionAsync())
+                using (await _unit.BeginTransactionAsync())
                 {
                     try
                     {
@@ -137,10 +129,10 @@ namespace ADay15.NET.Application.Services
                         user.Name = dto.Name ?? user.Name;
                         user.Status = dto.Status ?? user.Status;
 
+                        await _unit.UserRepository.UpdateAsync(user);
+
                         // 【高性能】直接删，不加载数据
-                        await _dbContext.UserRoles
-                            .Where(ur => ur.UserId == user.Id)
-                            .ExecuteDeleteAsync();
+                        await _unit.UserRoleRepository.DeleteBatchAsync(ur => ur.UserId == user.Id);
 
                         // 新增新角色
                         var userRoles = dto.RoleId.Select(roleId => new UserRole
@@ -148,18 +140,16 @@ namespace ADay15.NET.Application.Services
                             UserId = user.Id,
                             RoleId = roleId
                         }).ToList();
-                        await _dbContext.UserRoles.AddRangeAsync(userRoles);
 
-                        // 不需要 Update(user)，自动跟踪
-                        await _dbContext.SaveChangesAsync();
+                        await _unit.UserRoleRepository.AddRangeAsync(userRoles);
 
-                        await transaction.CommitAsync();
+                        await _unit.CommitAsync();
                         return R<dynamic>.Sucess("修改成功");
                     }
                     catch (Exception ex)
                     {
                         // 发生异常时回滚事务
-                        await transaction.RollbackAsync();
+                        await _unit.RollbackAsync();
                         // 可以选择抛出异常或进行其他错误处理
                         throw; // 或者处理异常，例如：throw new Exception("Transaction failed", ex);
                     }
@@ -176,30 +166,26 @@ namespace ADay15.NET.Application.Services
         /// <returns></returns>
         public async Task<R<dynamic>> DelUserAsync(int userId) 
         {
-            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
+            var user = await _unit.UserRepository.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null)
                 return R<dynamic>.Fail("用户不存在");
 
-            using (var transaction = await _dbContext.Database.BeginTransactionAsync()) 
+            using (await _unit.BeginTransactionAsync()) 
             {
                 try 
                 {
                     // 高性能删除关联
-                    await _dbContext.UserRoles
-                        .Where(ur => ur.UserId == userId)
-                        .ExecuteDeleteAsync();
+                    await _unit.UserRoleRepository.DeleteBatchAsync(ur => ur.UserId == user.Id);
 
-                    _dbContext.Users.Remove(user);
+                    await _unit.UserRepository.DeleteAsync(user);
 
-                    await _dbContext.SaveChangesAsync();
-
-                    await transaction.CommitAsync();
+                    await _unit.CommitAsync();
 
                     return R<dynamic>.Sucess("删除成功");
 
                 } catch (Exception ex) 
                 {
-                    await transaction.RollbackAsync();
+                    await _unit.RollbackAsync();
                     throw new Exception("Transaction failed", ex);
                 }
 
@@ -217,22 +203,19 @@ namespace ADay15.NET.Application.Services
         /// <returns>总数+用户列表</returns>
         public async Task<(long total, List<User> list)> GetUsers(int pageNum, int pageSize, string? account, string? name) 
         {
-            var query = _dbContext.Users.AsNoTracking()
-                        .Where(u => string.IsNullOrEmpty(account) || u.Account.Contains(account))
-                        .Where(u => string.IsNullOrEmpty(name) || u.Name.Contains(name));
+            // 1. 默认条件
+            Expression<Func<User, bool>> where = u => true;
 
-            //取得总数
-            var total = await query.CountAsync();
+            // 2. 动态拼接
+            if (!string.IsNullOrEmpty(account))
+                where = where.And(u => u.Account.Contains(account));
 
-            //用户列表
-            var list = await query
-                .OrderByDescending(u => u.Id)
-                .Skip((pageNum - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
+            if (!string.IsNullOrEmpty(name))
+                where = where.And(u => u.Name.Contains(name));
 
-             return (total, list);
-
+            // 3. 调用泛型仓储
+            return await _unit.UserRepository.GetPageListAsync(where, pageNum, pageSize);
+       
         }
 
         /// <summary>
@@ -244,11 +227,9 @@ namespace ADay15.NET.Application.Services
         /// <returns></returns>
         public async Task<R<dynamic>> ChangeStatus(long[] userIds)
         {
-            await _dbContext.Users
-                .Where(u => userIds.Contains(u.Id))
-                .ExecuteUpdateAsync(x => x.SetProperty(u => u.Status, 0));
-
-            return R<dynamic>.Sucess("批量禁用成功");
+            var num= await _unit.UserRepository.UpdateBatchAsync(u => userIds.Contains(u.Id), x => x.SetProperty(u => u.Status, 0));
+            
+            return R<dynamic>.Sucess($"批量禁用{num}条成功");
         }
     }
 }

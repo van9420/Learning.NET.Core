@@ -15,3 +15,4 @@ G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\ADay15.NET
 G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\refint\ADay15.NET.Application.dll
 G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\ADay15.NET.Application.pdb
 G:\projects\C#\ADay15.NET.API\ADay15.NET.Application\obj\Debug\net8.0\ref\ADay15.NET.Application.dll
+G:\projects\C#\ADay15.Net.API\ADay15.NET.Application\obj\Debug\net8.0\ADay15.NET.Application.sourcelink.json
