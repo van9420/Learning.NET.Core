@@ -60,7 +60,14 @@ namespace ADay15.NET.Infrastructure.Repositories
         }
 
 
-
-       
+        public async Task<User> LoginAsync(string account, string password)
+        {
+            var user = await _dbContext.Users
+                .AsNoTracking()
+                .Where(u => u.Account == account && u.Password == password)
+                .Select(u => new User { Id = u.Id, Name = u.Name, Account = u.Account, Status = u.Status, CreateTime = u.CreateTime })
+                .FirstOrDefaultAsync();
+            return user;
+        }
     }
 }

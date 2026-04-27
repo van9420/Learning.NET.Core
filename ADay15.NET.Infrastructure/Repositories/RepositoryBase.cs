@@ -99,14 +99,14 @@ namespace ADay15.NET.Infrastructure.Repositories
             return await _dbSet.AsNoTracking().Where(where).ToListAsync();
         }
 
-        public async Task<(long total, List<T> list)> GetPageListAsync(
+        public async Task<(int total, List<T> list)> GetPageListAsync(
             Expression<Func<T, bool>> where,
             int pageIndex, int pageSize,
             Expression<Func<T, object>> orderBy = null,
             bool isAsc = true)
         {
             var query = _dbSet.AsNoTracking().Where(where);
-            long total = await query.CountAsync();
+            int total = await query.CountAsync();
 
             if (orderBy != null)
             {

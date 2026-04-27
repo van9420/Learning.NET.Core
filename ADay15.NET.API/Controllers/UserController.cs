@@ -4,6 +4,7 @@ using ADay15.NET.Domain.Entities;
 using ADay15.NET.Domain.Enums;
 using ADay15.NET.Infrastructure.Commons;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Principal;
 
 namespace ADay15.NET.API.Controllers
 {
@@ -12,9 +13,9 @@ namespace ADay15.NET.API.Controllers
     public class UserController:ControllerBase
     {
 
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public UserController(UserService userService) 
+        public UserController(IUserService userService) 
         {
             _userService = userService;
         }
@@ -28,15 +29,13 @@ namespace ADay15.NET.API.Controllers
         [HttpGet("user-roles/{userId}")]
         public async Task<ActionResult<R<object>>> GetUserRoles(long userId)
         {
-            var data = await _userService.GetUserWithRolesAsync(userId);
-            return Ok(R<object>.Sucess(data));
+            return await _userService.GetUserWithRolesAsync(userId);
         }
 
         [HttpGet("user-account")]
-        public async Task<ActionResult<R<User>>> GetUserByAccoun([FromQuery]string account)
+        public async Task<ActionResult<R<User>>> GetUserByAccount([FromQuery]string account)
         {
-            var data = await _userService.GetUserByAccountAsync(account);
-            return Ok(R<User>.Sucess(data));
+            return await _userService.GetUserByAccountAsync(account);
         }
 
         /// <summary>
@@ -45,15 +44,13 @@ namespace ADay15.NET.API.Controllers
         /// <param name="dto"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult<R<User>>> AddUser(UserCreateDto dto) 
+        public async Task<ActionResult<R<string>>> AddUser(UserCreateDto dto) 
         {
             //数据校验
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var data = await _userService.AddUserAsync(dto);
-
-            return Ok(data);
+            return await _userService.AddUserAsync(dto);
         }
 
 
@@ -63,17 +60,12 @@ namespace ADay15.NET.API.Controllers
         /// <param name="dto"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<ActionResult<R<User>>> UpdUser(UserUpdateDto dto)
+        public async Task<ActionResult<R<string>>> UpdUser(UserUpdateDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var data = await _userService.UpdUserAsync(dto);
-
-            if (data == null)
-                return NotFound();
-
-            return Ok(data);
+            return await _userService.UpdateUserAsync(dto);
         }
 
         
@@ -83,33 +75,20 @@ namespace ADay15.NET.API.Controllers
         /// <param name="Id"></param>
         /// <returns></returns>
         [HttpDelete("{Id}")]
-        public async Task<ActionResult<R<User>>> DelUser([FromRoute]int Id)
+        public async Task<ActionResult<R<string>>> DelUser([FromRoute]int Id)
         {
-            var data = await _userService.DelUserAsync(Id);
 
-            if (data == null)
-                return NotFound();
-
-            return Ok(data);
+            return await _userService.DeleteUserAsync(Id);
         }
 
         /// <summary>
         /// 分页查询
         /// </summary>
-        /// <param name="pageNum"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="account"></param>
-        /// <param name="name"></param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<ActionResult<R<object>>> GetUsers(
-            [FromQuery] int pageNum = 1,
-            [FromQuery] int pageSize = 10,
-            [FromQuery] string? account = null,
-            [FromQuery] string? name = null)
+        public async Task<ActionResult<R<PageResult<User>>>> GetUsers(UserPageQueryDto dto)
         {
-            var (total, list) = await _userService.GetUsers(pageNum, pageSize, account, name);
-            return Ok(R<object>.Sucess(new { total, list }));
+            return await _userService.GetUserPageListAsync(dto);
         }
 
 
@@ -124,10 +103,15 @@ namespace ADay15.NET.API.Controllers
         /// <param name="ids"></param>
         /// <returns></returns>
         [HttpPut("batch-disable")]
-        public async Task<ActionResult<R<dynamic>>> BatchDisable([FromBody] long[] ids)
+        public async Task<ActionResult<R<string>>> BatchDisable([FromBody] long[] ids)
         {
-            var res = await _userService.ChangeStatus(ids);
-            return Ok(res);
+            return await _userService.BatchDisableUserAsync(ids);
+        }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<R<User>>> LoginUser([FromBody]UserLoginDto dto)
+        {
+            return await _userService.LoginAsync(dto.Account, dto.Password);
         }
     }
 }

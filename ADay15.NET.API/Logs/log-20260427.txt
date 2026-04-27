@@ -1,0 +1,78 @@
+2026-04-27 23:17:27 [INF] 【请求开始】GET /weatherforecast
+2026-04-27 23:17:27 [INF] 【请求结束】GET /weatherforecast | 耗时：15ms
+2026-04-27 23:17:38 [INF] 【请求开始】GET /api/user/user-roles/10012
+2026-04-27 23:17:42 [INF] 【请求结束】GET /api/user/user-roles/10012 | 耗时：3774ms
+2026-04-27 23:17:51 [INF] 【请求开始】POST /api/user/
+2026-04-27 23:17:51 [INF] 【请求结束】POST /api/user/ | 耗时：120ms
+2026-04-27 23:17:58 [INF] 【请求开始】POST /api/user/
+2026-04-27 23:17:59 [INF] 【请求结束】POST /api/user/ | 耗时：445ms
+2026-04-27 23:18:13 [INF] 【请求开始】POST /api/user/
+2026-04-27 23:18:13 [INF] 【请求结束】POST /api/user/ | 耗时：15ms
+2026-04-27 23:18:20 [INF] 【请求开始】PUT /api/user/
+2026-04-27 23:18:20 [INF] 【请求结束】PUT /api/user/ | 耗时：43ms
+2026-04-27 23:18:29 [INF] 【请求开始】PUT /api/user/
+2026-04-27 23:18:30 [INF] 【请求结束】PUT /api/user/ | 耗时：165ms
+2026-04-27 23:18:37 [INF] 【请求开始】DELETE /api/user/10011
+2026-04-27 23:18:37 [INF] 【请求结束】DELETE /api/user/10011 | 耗时：11ms
+2026-04-27 23:18:44 [INF] 【请求开始】DELETE /api/user/10013
+2026-04-27 23:18:44 [INF] 【请求结束】DELETE /api/user/10013 | 耗时：15ms
+2026-04-27 23:19:34 [INF] 【请求开始】GET /api/user
+2026-04-27 23:19:34 [INF] 【请求结束】GET /api/user | 耗时：33ms
+2026-04-27 23:20:26 [INF] 【请求开始】GET /api/user
+2026-04-27 23:20:26 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-27 23:20:26 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-04-27 23:20:26 [INF] 【请求结束】GET /api/user | 耗时：67ms
+2026-04-27 23:20:39 [INF] 【请求开始】GET /api/user
+2026-04-27 23:20:39 [INF] 【请求结束】GET /api/user | 耗时：3ms
+2026-04-27 23:21:05 [INF] 【请求开始】PUT /api/user/batch-disable
+2026-04-27 23:21:05 [INF] 【请求结束】PUT /api/user/batch-disable | 耗时：361ms
+2026-04-27 23:22:22 [INF] 【请求开始】POST /api/user/login
+2026-04-27 23:22:22 [INF] 【请求结束】POST /api/user/login | 耗时：9ms
+2026-04-27 23:22:39 [INF] 【请求开始】POST /api/user/login
+2026-04-27 23:22:39 [INF] 【请求结束】POST /api/user/login | 耗时：0ms
+2026-04-27 23:23:07 [INF] 【请求开始】POST /api/user/login
+2026-04-27 23:23:07 [INF] 【请求结束】POST /api/user/login | 耗时：2ms
+2026-04-27 23:23:50 [INF] 【请求开始】GET /weatherforecast
+2026-04-27 23:23:50 [INF] 【请求结束】GET /weatherforecast | 耗时：8ms
+2026-04-27 23:23:53 [INF] 【请求开始】POST /api/user/login
+2026-04-27 23:23:54 [INF] 【请求结束】POST /api/user/login | 耗时：884ms
+2026-04-27 23:24:57 [INF] 【请求开始】POST /api/user/login
+2026-04-27 23:24:57 [INF] 【请求结束】POST /api/user/login | 耗时：67ms
+2026-04-27 23:25:11 [INF] 【请求开始】POST /api/user/login
+2026-04-27 23:25:11 [INF] 【请求结束】POST /api/user/login | 耗时：16ms
+2026-04-27 23:25:19 [INF] 【请求开始】POST /api/user/login
+2026-04-27 23:25:19 [INF] 【请求结束】POST /api/user/login | 耗时：2ms
+2026-04-27 23:26:44 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:26:44 [INF] 【请求结束】GET /api/user/user-account | 耗时：4ms
+2026-04-27 23:27:09 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:27:09 [INF] 【请求结束】GET /api/user/user-account | 耗时：0ms
+2026-04-27 23:27:28 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:27:28 [INF] 【请求结束】GET /api/user/user-account | 耗时：1ms
+2026-04-27 23:27:30 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:27:30 [INF] 【请求结束】GET /api/user/user-account | 耗时：0ms
+2026-04-27 23:27:48 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:27:48 [INF] 【请求结束】GET /api/user/user-account | 耗时：1ms
+2026-04-27 23:28:05 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:28:05 [INF] 【请求结束】GET /api/user/user-account | 耗时：1ms
+2026-04-27 23:28:15 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:28:15 [INF] 【请求结束】GET /api/user/user-account | 耗时：1ms
+2026-04-27 23:28:20 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:28:20 [INF] 【请求结束】GET /api/user/user-account | 耗时：1ms
+2026-04-27 23:28:54 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:28:54 [INF] 【请求结束】GET /api/user/user-account | 耗时：641ms
+2026-04-27 23:29:24 [INF] 【请求开始】GET /weatherforecast
+2026-04-27 23:29:24 [INF] 【请求结束】GET /weatherforecast | 耗时：10ms
+2026-04-27 23:29:47 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:29:48 [INF] 【请求结束】GET /api/user/user-account | 耗时：763ms
+2026-04-27 23:30:15 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:30:15 [INF] 【请求结束】GET /api/user/user-account | 耗时：59ms
+2026-04-27 23:30:23 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:30:23 [INF] 【请求结束】GET /api/user/user-account | 耗时：15ms
+2026-04-27 23:30:32 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:30:32 [INF] 【请求结束】GET /api/user/user-account | 耗时：1ms
+2026-04-27 23:30:59 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:30:59 [INF] 【请求结束】GET /api/user/user-account | 耗时：11ms
+2026-04-27 23:31:05 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:31:05 [INF] 【请求结束】GET /api/user/user-account | 耗时：1ms
+2026-04-27 23:31:20 [INF] 【请求开始】GET /api/user/user-account
+2026-04-27 23:31:20 [INF] 【请求结束】GET /api/user/user-account | 耗时：5ms

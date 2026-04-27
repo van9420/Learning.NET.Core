@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace ADay15.NET.Application.Services
 {
-    public class UserService 
+    public class UserService:IUserService
     {
         private readonly IUnitOfWork _unit;
 
@@ -32,16 +32,59 @@ namespace ADay15.NET.Application.Services
             _unit = unit;
         }
 
-        public async Task<dynamic> GetUserWithRolesAsync(long userId)
-        {
-            return await _unit.UserRepository.GetUserWithRolesAsync(userId);
 
+        /// <summary>
+        /// 根据Account获取用户信息
+        /// </summary>
+        /// <param name="account">账号</param>
+        /// <returns>用户信息</returns>
+        public async Task<R<User>> GetUserByAccountAsync(string account)
+        {
+            var user= await _unit.UserRepository.GetUserByAccountAsync(account);
+            R<User> res = user != null ? R<User>.Sucess(user) : R<User>.Fail("用户不存在");
+            return res;
+        }        
+
+        /// <summary>
+        /// 根据ID查用户+角色
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public async Task<R<dynamic>> GetUserWithRolesAsync(long userId)
+        {
+            var data = await _unit.UserRepository.GetUserWithRolesAsync(userId);
+            R<dynamic> res = data != null ? R<dynamic>.Sucess(data) : R<dynamic>.Fail("用户不存在");
+
+            return res;
         }
 
-        public async Task<User> GetUserByAccountAsync(string account)
+        /// <summary>
+        /// 分页多条件查询用户列表
+        /// </summary>
+        /// <param name="dto">分页查询用户列表的DTO</param>
+        /// <returns>总数+用户列表</returns>
+        public async Task<R<PageResult<User>>> GetUserPageListAsync(UserPageQueryDto dto)
         {
-            return await _unit.UserRepository.GetUserByAccountAsync(account);
+            // 1. 默认条件
+            Expression<Func<User, bool>> where = u => true;
 
+            // 2. 动态拼接
+            if (!string.IsNullOrEmpty(dto.Account))
+                where = where.And(u => u.Account.Contains(dto.Account));
+
+            if (!string.IsNullOrEmpty(dto.Name))
+                where = where.And(u => u.Name.Contains(dto.Name));
+
+            // 3. 调用泛型仓储
+            (int total, List<User> list) data = await _unit.UserRepository.GetPageListAsync(where, dto.PageNum, dto.PageSize);
+
+            return R<PageResult<User>>.Sucess(new PageResult<User>
+            {
+                Items = data.list,
+                TotalCount = data.total,
+                PageNumber = dto.PageNum,
+                PageSize = dto.PageSize
+            });
         }
 
         /// <summary>
@@ -51,13 +94,13 @@ namespace ADay15.NET.Application.Services
         /// </summary>
         /// <param name="dto">接收参数：账号、密码、姓名、状态、角色 Id 列表</param>
         /// <returns>统一格式 R<T></returns>
-        public async Task<R<dynamic>> AddUserAsync(UserCreateDto dto) 
+        public async Task<R<string>> AddUserAsync(UserCreateDto dto)
         {
             //先判断账号是否唯一
             // 【重要】不能用 AsNoTracking，因为要判断存在
             var exists = await _unit.UserRepository.AnyAsync(u => u.Account == dto.Account);
             if (exists)
-                return R<dynamic>.Fail("账号已存在");
+                return R<string>.Fail("账号已存在");
 
             //事务
             using (await _unit.BeginTransactionAsync())
@@ -91,7 +134,7 @@ namespace ADay15.NET.Application.Services
                     // ✅ 统一提交
                     await _unit.CommitAsync();
 
-                    return R<dynamic>.Sucess(new { user.Id, user.Account, user.Name });
+                    return R<string>.Sucess("用户添加成功");
                 }
                 catch (Exception ex)
                 {
@@ -101,9 +144,7 @@ namespace ADay15.NET.Application.Services
                     throw; // 或者处理异常，例如：throw new Exception("Transaction failed", ex);
                 }
             }
-
         }
-
 
         /// <summary>
         /// 更新用户 
@@ -111,15 +152,15 @@ namespace ADay15.NET.Application.Services
         /// </summary>
         /// <param name="dto">参数：用户 ID、姓名、状态、角色 Id 列表</param>
         /// <returns></returns>
-        public async Task<R<dynamic>> UpdUserAsync(UserUpdateDto dto) 
+        public async Task<R<string>> UpdateUserAsync(UserUpdateDto dto)
         {
             //查询用户是否存在
             // 【关键】修改必须 TRACKING，不能 AsNoTracking
             var user = await _unit.UserRepository.FirstOrDefaultAsync(u => u.Id == dto.Id);
 
             if (user == null)
-                return R<dynamic>.Fail("用户不存在");
-            else 
+                return R<string>.Fail("用户不存在");
+            else
             {
                 using (await _unit.BeginTransactionAsync())
                 {
@@ -144,7 +185,7 @@ namespace ADay15.NET.Application.Services
                         await _unit.UserRoleRepository.AddRangeAsync(userRoles);
 
                         await _unit.CommitAsync();
-                        return R<dynamic>.Sucess("修改成功");
+                        return R<string>.Sucess("修改成功");
                     }
                     catch (Exception ex)
                     {
@@ -157,22 +198,21 @@ namespace ADay15.NET.Application.Services
             }
         }
 
-
         /// <summary>
         /// 删除用户
         /// 逻辑：判断用户是否存在,开启事务,删除用户角色关联记录,删除用户,提交事务
         /// </summary>
         /// <param name="userId">用户 ID</param>
         /// <returns></returns>
-        public async Task<R<dynamic>> DelUserAsync(int userId) 
+        public async Task<R<string>> DeleteUserAsync(long userId)
         {
             var user = await _unit.UserRepository.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null)
-                return R<dynamic>.Fail("用户不存在");
+                return R<string>.Fail("用户不存在");
 
-            using (await _unit.BeginTransactionAsync()) 
+            using (await _unit.BeginTransactionAsync())
             {
-                try 
+                try
                 {
                     // 高性能删除关联
                     await _unit.UserRoleRepository.DeleteBatchAsync(ur => ur.UserId == user.Id);
@@ -181,9 +221,10 @@ namespace ADay15.NET.Application.Services
 
                     await _unit.CommitAsync();
 
-                    return R<dynamic>.Sucess("删除成功");
+                    return R<string>.Sucess("删除成功");
 
-                } catch (Exception ex) 
+                }
+                catch (Exception ex)
                 {
                     await _unit.RollbackAsync();
                     throw new Exception("Transaction failed", ex);
@@ -194,42 +235,37 @@ namespace ADay15.NET.Application.Services
 
 
         /// <summary>
-        /// 分页查询用户列表
-        /// </summary>
-        /// <param name="pageNum">页码</param>
-        /// <param name="pageSize">页大小</param>
-        /// <param name="account">账号（可选）</param>
-        /// <param name="name">姓名（可选）</param>
-        /// <returns>总数+用户列表</returns>
-        public async Task<(long total, List<User> list)> GetUsers(int pageNum, int pageSize, string? account, string? name) 
-        {
-            // 1. 默认条件
-            Expression<Func<User, bool>> where = u => true;
-
-            // 2. 动态拼接
-            if (!string.IsNullOrEmpty(account))
-                where = where.And(u => u.Account.Contains(account));
-
-            if (!string.IsNullOrEmpty(name))
-                where = where.And(u => u.Name.Contains(name));
-
-            // 3. 调用泛型仓储
-            return await _unit.UserRepository.GetPageListAsync(where, pageNum, pageSize);
-       
-        }
-
-        /// <summary>
         /// 6. 批量禁用用户
         /// 要求：使用 ExecuteUpdateAsync
         /// 逻辑：批量更新 Status = 0
         /// </summary>
         /// <param name="userIds">用户 ID 数组</param>
         /// <returns></returns>
-        public async Task<R<dynamic>> ChangeStatus(long[] userIds)
+        public async Task<R<string>> BatchDisableUserAsync(long[] userIds)
         {
-            var num= await _unit.UserRepository.UpdateBatchAsync(u => userIds.Contains(u.Id), x => x.SetProperty(u => u.Status, 0));
-            
-            return R<dynamic>.Sucess($"批量禁用{num}条成功");
+            var num = await _unit.UserRepository.UpdateBatchAsync(u => userIds.Contains(u.Id), x => x.SetProperty(u => u.Status, 0));
+
+            return R<string>.Sucess($"批量禁用{num}条成功");
+        }
+
+
+        /// <summary>
+        /// 用户登录
+        /// </summary>
+        /// <param name="account">账号</param>
+        /// <param name="password">密码</param>
+        /// <returns></returns>
+        public async Task<R<User>> LoginAsync(string account, string password)
+        {
+            if (string.IsNullOrEmpty(account) || string.IsNullOrEmpty(password))
+                return R<User>.Fail("账户或密码不能为空！");
+
+            var user= await _unit.UserRepository.LoginAsync(account, password);
+
+            R<User> res = user != null ? R<User>.Sucess(user) : R<User>.Fail("账户或密码不正确！");
+
+            return res;
+
         }
     }
 }

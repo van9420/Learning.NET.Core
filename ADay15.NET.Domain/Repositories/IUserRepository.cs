@@ -17,7 +17,7 @@ namespace ADay15.NET.Domain.Repositories
         /// </summary>
         /// <param name="userId">用户ID</param>
         /// <returns>用户的信息以及角色列表信息</returns>
-        Task<object> GetUserWithRolesAsync(long userId);
+        Task<dynamic> GetUserWithRolesAsync(long userId);
 
         /// <summary>
         /// 根据Account获取用户信息
@@ -25,6 +25,9 @@ namespace ADay15.NET.Domain.Repositories
         /// <param name="account">账号</param>
         /// <returns>用户信息</returns>
         Task<User> GetUserByAccountAsync(string account);
+
+
+        Task<User> LoginAsync(string account, string password);
 
     }
 }

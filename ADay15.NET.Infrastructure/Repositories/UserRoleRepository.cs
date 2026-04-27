@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace ADay15.NET.Infrastructure.Repositories
 {
+    /// <summary>
+    /// 用户角色仓储实现
+    /// </summary>
     public class UserRoleRepository : RepositoryBase<UserRole>, IUserRoleRepository
     {
         public UserRoleRepository(AppDbContext dbContext) : base(dbContext)

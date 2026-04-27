@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ADay15.NET.Domain.Repositories
 {
+    /// <summary>
+    /// 用户-角色 仓储接口
+    /// </summary>
     public interface IUserRoleRepository:IRepository<UserRole>
     {
     }

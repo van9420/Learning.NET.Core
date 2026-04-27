@@ -50,15 +50,25 @@
         "tags": [
           "User"
         ],
-        "parameters": [
-          {
-            "name": "account",
-            "in": "query",
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -113,17 +123,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserR"
+                  "$ref": "#/components/schemas/StringR"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserR"
+                  "$ref": "#/components/schemas/StringR"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserR"
+                  "$ref": "#/components/schemas/StringR"
                 }
               }
             }
@@ -159,17 +169,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserR"
+                  "$ref": "#/components/schemas/StringR"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserR"
+                  "$ref": "#/components/schemas/StringR"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserR"
+                  "$ref": "#/components/schemas/StringR"
                 }
               }
             }
@@ -180,57 +190,42 @@
         "tags": [
           "User"
         ],
-        "parameters": [
-          {
-            "name": "pageNum",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          },
-          {
-            "name": "account",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "name",
-            "in": "query",
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPageQueryDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPageQueryDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPageQueryDto"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ObjectR"
+                  "$ref": "#/components/schemas/UserPageResultR"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ObjectR"
+                  "$ref": "#/components/schemas/UserPageResultR"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ObjectR"
+                  "$ref": "#/components/schemas/UserPageResultR"
                 }
               }
             }
@@ -260,17 +255,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserR"
+                  "$ref": "#/components/schemas/StringR"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserR"
+                  "$ref": "#/components/schemas/StringR"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserR"
+                  "$ref": "#/components/schemas/StringR"
                 }
               }
             }
@@ -320,17 +315,74 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ObjectR"
+                  "$ref": "#/components/schemas/StringR"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ObjectR"
+                  "$ref": "#/components/schemas/StringR"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ObjectR"
+                  "$ref": "#/components/schemas/StringR"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "password",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserR"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserR"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserR"
                 }
               }
             }
@@ -399,6 +451,24 @@
             "items": {
               "$ref": "#/components/schemas/UserRole"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringR": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "msg": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -489,6 +559,75 @@
               "format": "int32"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserPageQueryDto": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "account": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserPageResult": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserPageResultR": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "msg": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/UserPageResult"
           }
         },
         "additionalProperties": false

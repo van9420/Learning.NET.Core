@@ -15,7 +15,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "ADay15.NET.Infrastructure.Commons.R\u00601[[ADay15.NET.Domain.Entities.User, ADay15.NET.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "ADay15.NET.Infrastructure.Commons.R\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -41,7 +41,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "ADay15.NET.Infrastructure.Commons.R\u00601[[ADay15.NET.Domain.Entities.User, ADay15.NET.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "ADay15.NET.Infrastructure.Commons.R\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -60,29 +60,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "pageNum",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "account",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "name",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "dto",
+        "Type": "ADay15.NET.Application.DTOs.UserPageQueryDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "ADay15.NET.Infrastructure.Commons.R\u00601[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "ADay15.NET.Infrastructure.Commons.R\u00601[[ADay15.NET.Infrastructure.Commons.PageResult\u00601[[ADay15.NET.Domain.Entities.User, ADay15.NET.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], ADay15.NET.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -108,7 +93,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "ADay15.NET.Infrastructure.Commons.R\u00601[[ADay15.NET.Domain.Entities.User, ADay15.NET.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "ADay15.NET.Infrastructure.Commons.R\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -134,7 +119,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "ADay15.NET.Infrastructure.Commons.R\u00601[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "ADay15.NET.Infrastructure.Commons.R\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -146,7 +131,38 @@
   },
   {
     "ContainingType": "ADay15.NET.API.Controllers.UserController",
-    "Method": "GetUserByAccoun",
+    "Method": "LoginUser",
+    "RelativePath": "api/User/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "account",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ADay15.NET.Infrastructure.Commons.R\u00601[[ADay15.NET.Domain.Entities.User, ADay15.NET.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ADay15.NET.API.Controllers.UserController",
+    "Method": "GetUserByAccount",
     "RelativePath": "api/User/user-account",
     "HttpMethod": "GET",
     "IsController": true,
@@ -155,7 +171,7 @@
       {
         "Name": "account",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [

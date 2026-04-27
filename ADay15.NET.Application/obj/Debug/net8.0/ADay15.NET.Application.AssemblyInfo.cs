@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ADay15.NET.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+052ff42496394d0c2d0b5888f098ebbd262232eb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a260e9ba80acbceea4bdc7a04cea8cfa4c286f45")]
 [assembly: System.Reflection.AssemblyProductAttribute("ADay15.NET.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ADay15.NET.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -37,7 +37,7 @@ namespace ADay15.NET.Domain.Repositories
         #endregion
 
         #region 3、分页
-        Task<(long total, List<T> list)> GetPageListAsync(
+        Task<(int total, List<T> list)> GetPageListAsync(
             Expression<Func<T, bool>> where,
             int pageIndex, int pageSize,
             Expression<Func<T, object>> orderBy = null,
